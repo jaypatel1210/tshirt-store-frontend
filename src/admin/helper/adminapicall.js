@@ -58,16 +58,15 @@ export const deleteCategory = (categoryId, userId, token) => {
 
 // update category
 export const updateSingleCategory = (categoryId, userId, token, name) => {
-  return fetch(`${API}/category/${categoryId}/${userId}`, {
+  return fetch(`${API}/category/update/${categoryId}/${userId}`, {
     method: 'PUT',
     headers: {
       Accept: 'application/json',
       Authorization: `Bearer ${token}`,
     },
-    body: name,
+    body: JSON.stringify({ name }),
   })
     .then(res => {
-      console.log(res);
       return res.json();
     })
     .catch(err => console.log(err));
@@ -130,6 +129,7 @@ export const deleteProduct = (productId, userId, token) => {
 
 // update product
 export const updateProduct = (productId, userId, token, product) => {
+  console.log(product);
   return fetch(`${API}/product/${productId}/${userId}`, {
     method: 'PUT',
     headers: {

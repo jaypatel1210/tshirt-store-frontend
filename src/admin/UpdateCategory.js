@@ -15,11 +15,9 @@ const UpdateCategory = ({ match, history }) => {
   }, []);
 
   const preloadCategory = () => {
-    console.log(match.params.categoryId);
-    console.log(user._id);
     getCategory(match.params.categoryId).then(data => {
       if (data.err) return setErr(data.err);
-      // setName(data.name);
+      setName(data.name);
     });
   };
 

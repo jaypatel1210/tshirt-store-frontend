@@ -62,6 +62,7 @@ export const updateSingleCategory = (categoryId, userId, token, name) => {
     method: 'PUT',
     headers: {
       Accept: 'application/json',
+      'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({ name }),

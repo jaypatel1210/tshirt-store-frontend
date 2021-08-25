@@ -24,7 +24,7 @@ const Base = ({
         </div>
         <div className="container">
           <h6 className="text-muted text-center">
-            An Amazing Place to But Tshirt
+            An Amazing Place to Buy Tshirt
           </h6>
         </div>
       </footer>

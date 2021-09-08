@@ -83,7 +83,7 @@ const PaymentB = ({ products, setReload = f => f, reload = undefined }) => {
 
   return (
     <div>
-      <h3>Your Bill is {getAmount()}</h3>
+      <h3>Your Bill is ₹{getAmount()}</h3>
       {showDropIn()}
     </div>
   );

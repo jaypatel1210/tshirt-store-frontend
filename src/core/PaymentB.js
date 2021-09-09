@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { loadProducts, cartEmpty } from './helper/cartHelper';
+import { cartEmpty } from './helper/cartHelper';
 import { getMeToken, processPayment } from './helper/paymentB';
 import { createOrder } from './helper/orderHelper';
 import { isAuthenticated } from '../auth/helper';
@@ -66,17 +66,28 @@ const PaymentB = ({ products, setReload = f => f, reload = undefined }) => {
   const showDropIn = () => (
     <div>
       {info.clientToken !== null && products.length > 0 ? (
-        <div>
-          <DropIn
-            options={{ authorization: info.clientToken }}
-            onInstance={instance => (info.instance = instance)}
-          />
-          <button className="btn btn-success btn-block" onClick={onPurchase}>
-            Buy
-          </button>
-        </div>
+        <>
+          {userId ? (
+            <div>
+              <DropIn
+                options={{ authorization: info.clientToken }}
+                onInstance={instance => (info.instance = instance)}
+              />
+              <button
+                className="btn btn-success btn-block"
+                onClick={onPurchase}
+              >
+                Buy
+              </button>
+            </div>
+          ) : (
+            <h3>
+              <Link to="signin">Please Login</Link>
+            </h3>
+          )}
+        </>
       ) : (
-        <h3 className="text-white">Please Login or add something to cart</h3>
+        <h3 className="text-white">Add something to cart</h3>
       )}
     </div>
   );

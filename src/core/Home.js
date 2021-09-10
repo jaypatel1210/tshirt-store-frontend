@@ -24,13 +24,31 @@ const Home = () => {
     <Base title="Home Page" description="Welcome to the Tshirt Store">
       <div className="row">
         <h1 className="text-white">All of tshirts</h1>
-        <div className="row">
-          {products.map(product => (
-            <div className="col-4 text-center" key={product._id}>
-              <Card product={product} />
+      </div>
+      <div className="row">
+        {products.length > 0 ? (
+          <>
+            {products.map(product => (
+              <div className="col-4 text-center" key={product._id}>
+                <Card product={product} />
+              </div>
+            ))}
+          </>
+        ) : (
+          <>
+            <div className="col-12">
+              <div className="text-center">
+                <div
+                  className="spinner-border text-warning"
+                  style={{ width: '45px', height: '45px' }}
+                >
+                  <span className="sr-only">Loading</span>
+                </div>
+                <h4 className="text-warning">Loading...</h4>
+              </div>
             </div>
-          ))}
-        </div>
+          </>
+        )}
       </div>
     </Base>
   );

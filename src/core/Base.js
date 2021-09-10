@@ -17,14 +17,19 @@ const Base = ({
         </div>
         <div className={className}>{children}</div>
       </div>
-      <footer className="footer bg-dark mt-auto py-3">
-        <div className="container-fluid bg-success text-white text-center p-2">
-          <h4>If you got any questions, feel free to reach out!</h4>
-          <button className="btn btn-warning bgn-lg">Contact Us</button>
-        </div>
+      <footer className="footer bg-dark">
         <div className="container">
           <h6 className="text-muted text-center">
             An Amazing Place to Buy Tshirt
+          </h6>
+          <h6 className="text-center">
+            <a
+              href="https://github.com/jaypatel1210"
+              className="text-warning"
+              target="_blank"
+            >
+              &copy; jaypatel1210
+            </a>
           </h6>
         </div>
       </footer>
